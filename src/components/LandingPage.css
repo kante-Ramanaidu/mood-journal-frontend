@@ -1,0 +1,87 @@
+.landing-container {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background: #f9fafb;
+  color: #1f2937;
+}
+
+.hero-section {
+  padding: 80px 20px;
+  text-align: center;
+  background: linear-gradient(135deg, #6366f1, #a78bfa);
+  color: white;
+  border-bottom-left-radius: 40px;
+  border-bottom-right-radius: 40px;
+}
+
+.hero-section h1 {
+  font-size: 3rem;
+  font-weight: 800;
+  margin-bottom: 10px;
+}
+
+.tagline {
+  font-size: 1.2rem;
+  margin-bottom: 30px;
+}
+
+.hero-buttons button {
+  margin: 0 10px;
+  padding: 12px 24px;
+  border: none;
+  border-radius: 999px;
+  background: white;
+  color: #4f46e5;
+  font-weight: 600;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.hero-buttons button:hover {
+  background: #e0e7ff;
+}
+
+.features-section {
+  padding: 60px 20px;
+  max-width: 900px;
+  margin: auto;
+  text-align: center;
+}
+
+.features-section h2 {
+  font-size: 2rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+}
+
+.features-steps {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 30px;
+}
+
+.step {
+  flex: 1 1 250px;
+  background: white;
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
+  transition: transform 0.2s ease;
+}
+
+.step:hover {
+  transform: translateY(-6px);
+}
+
+.step h3 {
+  color: #4f46e5;
+  margin-bottom: 10px;
+}
+
+.footer {
+  text-align: center;
+  padding: 20px;
+  color: #6b7280;
+  font-size: 0.9rem;
+}

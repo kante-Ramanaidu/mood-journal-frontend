@@ -1,0 +1,149 @@
+/* Global gradient background */
+body {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  height: 100vh;
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #fff;
+}
+
+/* 1) LOGIN PAGE SCOPED STYLES */
+.login-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-page .login-container {
+  background: rgba(255, 255, 255, 0.1);
+  padding: 40px 50px;
+  border-radius: 15px;
+  width: 350px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+}
+
+.login-page h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: 1.2px;
+  font-size: 1.8rem;
+  color: #d3c5f0;
+}
+
+.login-page form {
+  display: flex;
+  flex-direction: column;
+}
+
+.login-page input[type="email"],
+.login-page input[type="password"] {
+  padding: 12px 15px;
+  margin-bottom: 20px;
+  border: none;
+  border-radius: 8px;
+  outline: none;
+  font-size: 1rem;
+  transition: background-color 0.3s ease, color 0.3s ease;
+  background: rgba(255, 255, 255, 0.15);
+  color: #fff;
+}
+
+.login-page input::placeholder {
+  color: #ddd;
+}
+
+.login-page input[type="email"]:focus,
+.login-page input[type="password"]:focus {
+  background: rgba(255, 255, 255, 0.3);
+  color: #222;
+}
+
+.login-page button {
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  background: linear-gradient(45deg, #8e54e9, #4776e6);
+  color: white;
+  font-weight: 600;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.login-page button:hover {
+  background: linear-gradient(45deg, #4776e6, #8e54e9);
+}
+
+.login-page #message {
+  margin-top: 15px;
+  text-align: center;
+  font-weight: 600;
+  font-size: 1rem;
+  min-height: 1.2em;
+  color: #f0e9ff;
+  text-shadow: 0 0 5px rgba(142, 84, 233, 0.7);
+}
+
+/* 2) MOOD SELECTION PAGE STYLES */
+.mood-page {
+  /* You can choose different layout rules here */
+  padding: 2rem;
+}
+
+.mood-page .mood-container {
+  max-width: 400px;
+  margin: 3rem auto;
+  padding: 2rem;
+  background: rgba(255,255,255,0.1);
+  border-radius: 12px;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.2);
+  backdrop-filter: blur(8px);
+  -webkit-backdrop-filter: blur(8px);
+  border: 1px solid rgba(255,255,255,0.25);
+  color: #fff;
+  text-align: center;
+}
+
+.mood-page .mood-container h2 {
+  font-size: 1.6rem;
+  margin-bottom: 1.5rem;
+  color: #e0d7ff;
+}
+
+.mood-page .mood-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 1rem;
+}
+
+.mood-page .mood-button {
+  padding: 0.75rem;
+  font-size: 1rem;
+  border-radius: 8px;
+  border: 2px solid rgba(255,255,255,0.6);
+  background: rgba(255,255,255,0.15);
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.3s ease, border-color 0.3s ease;
+}
+
+.mood-page .mood-button:hover {
+  background: rgba(255,255,255,0.25);
+}
+
+.mood-page .mood-button.selected {
+  background: rgba(255,255,255,0.35);
+  border-color: #8e54e9;
+}
+
+.mood-page .mood-message {
+  margin-top: 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #f0e9ff;
+  text-shadow: 0 0 5px rgba(142,84,233,0.7);
+}
