@@ -1,6 +1,6 @@
 import { useState, useEffect } from 'react';
 import { useLocation, useNavigate } from 'react-router-dom';
-import './QuotesSongs.css'; // Custom CSS file
+import './QuotesSongs.css'; // Your custom styles
 
 export default function QuotesSongs() {
   const location = useLocation();
@@ -8,31 +8,31 @@ export default function QuotesSongs() {
   const mood = location.state?.mood || null;
 
   const [songs, setSongs] = useState([]);
-  const [quote, setQuote] = useState('');
+  const [quotes, setQuotes] = useState([]); // Now an array of quotes
   const [loadingSongs, setLoadingSongs] = useState(false);
-  const [loadingQuote, setLoadingQuote] = useState(false);
+  const [loadingQuotes, setLoadingQuotes] = useState(false);
   const [errorSongs, setErrorSongs] = useState(null);
-  const [errorQuote, setErrorQuote] = useState(null);
+  const [errorQuotes, setErrorQuotes] = useState(null);
 
-  // ✅ Reusable: Fetch quote
-  const fetchQuote = async () => {
-    setLoadingQuote(true);
-    setErrorQuote(null);
+  // Fetch quotes from your backend
+  const fetchQuotes = async () => {
+    if (!mood) return;
+    setLoadingQuotes(true);
+    setErrorQuotes(null);
+
     try {
-      const res = await fetch(
-        'https://api.quotable.io/random?tags=motivational|inspirational&maxLength=140'
-      );
-      if (!res.ok) throw new Error('Failed to fetch quote');
+      const res = await fetch(`http://localhost:5000/api/quotes?mood=${mood}`);
+      if (!res.ok) throw new Error('Failed to fetch quotes');
       const data = await res.json();
-      setQuote(data.content);
+      setQuotes(data);
     } catch (err) {
-      setErrorQuote('Could not load quote.');
+      setErrorQuotes('Could not load quotes.');
     } finally {
-      setLoadingQuote(false);
+      setLoadingQuotes(false);
     }
   };
 
-  // ✅ Reusable: Fetch songs
+  // Fetch songs as before
   const fetchSongs = async () => {
     if (!mood) return;
     setLoadingSongs(true);
@@ -57,7 +57,7 @@ export default function QuotesSongs() {
     }
 
     fetchSongs();
-    fetchQuote();
+    fetchQuotes();
   }, [mood, navigate]);
 
   if (!mood) return null;
@@ -72,18 +72,20 @@ export default function QuotesSongs() {
       <section className="quote-section">
         <div className="section-title">
           <span role="img" aria-label="quote">💬</span>
-          <h3>Quote</h3>
+          <h3>Quotes</h3>
         </div>
-        {loadingQuote && <p>Loading quote...</p>}
-        {errorQuote && <p className="error">{errorQuote}</p>}
-        {quote && (
-          <blockquote className="quote-card">
-            “{quote}”
-          </blockquote>
+        {loadingQuotes && <p>Loading quotes...</p>}
+        {errorQuotes && <p className="error">{errorQuotes}</p>}
+        {quotes.length > 0 ? (
+          quotes.map((quoteObj, index) => (
+            <blockquote key={index} className="quote-card">
+              “{quoteObj.content || quoteObj.q}” — <b>{quoteObj.author || quoteObj.a}</b>
+            </blockquote>
+          ))
+        ) : (
+          !loadingQuotes && <p>No quotes found for this mood.</p>
         )}
-        <button className="refresh-btn" onClick={fetchQuote}>
-          🔄 New Quote
-        </button>
+        
       </section>
 
       <section className="songs-section">
