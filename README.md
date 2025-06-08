@@ -34,7 +34,7 @@ A full-stack web application to track, record, and reflect on your daily moods w
 
 ---
 
-screen recorder
+screen recording
 
 https://github.com/user-attachments/assets/7cb317db-fba3-4f1d-bf65-b2353ab9cd30
 
