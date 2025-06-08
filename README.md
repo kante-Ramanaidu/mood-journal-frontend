@@ -1,3 +1,6 @@
+
+
+
 # Mood Journal App
 
 A full-stack web application to track, record, and reflect on your daily moods with personalized quotes and music suggestions.
@@ -30,6 +33,12 @@ A full-stack web application to track, record, and reflect on your daily moods w
 - External APIs integration (e.g., YouTube API for music)
 
 ---
+
+screen recorder
+
+https://github.com/user-attachments/assets/7cb317db-fba3-4f1d-bf65-b2353ab9cd30
+
+
 
 
 ![Screenshot 2025-06-07 184714](https://github.com/user-attachments/assets/242ec510-d701-4125-9693-92a31418396d)
