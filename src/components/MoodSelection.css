@@ -1,3 +1,4 @@
+/* Mood Container */
 .mood-container {
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
@@ -10,10 +11,10 @@
   box-shadow: 0 6px 20px rgba(0, 0, 0, 0.05);
   text-align: center;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  position: relative; /* Added to create positioning context */
+  position: relative;
 }
 
-
+/* Title */
 .mood-container h2 {
   font-size: 2rem;
   font-weight: 800;
@@ -21,12 +22,14 @@
   color: #111827;
 }
 
+/* Subtitle */
 .subtitle {
   color: #6b7280;
   font-size: 1rem;
   margin-bottom: 2rem;
 }
 
+/* Mood Grid */
 .mood-grid {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -35,6 +38,7 @@
   justify-items: center;
 }
 
+/* Mood Card */
 .mood-card {
   background-color: white;
   border-radius: 1rem;
@@ -43,6 +47,9 @@
   transition: all 0.3s ease;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
   border: 2px solid transparent;
+  width: 100%;
+  max-width: 160px;
+  text-align: center;
 }
 
 .mood-card:hover {
@@ -71,6 +78,7 @@
   color: #6b7280;
 }
 
+/* Feedback */
 .feedback {
   font-size: 1rem;
   margin-top: 1rem;
@@ -84,6 +92,7 @@
   color: red;
 }
 
+/* Next Button */
 .next-button {
   margin-top: 1.5rem;
   padding: 0.75rem 1.5rem;
@@ -101,13 +110,13 @@
   background-color: #4f46e5;
 }
 
+/* Mood Insights Section */
 .mood-insights {
-  margin-top: 40px;
-  padding-top: 20px;
+  margin-top: 3rem;
+  padding: 2rem 0 4rem; /* bottom space for footer gap */
   border-top: 1px solid #e5e7eb;
   text-align: left;
-  position: relative; /* needed for footer absolute positioning */
-  padding-bottom: 3rem; /* space for footer */
+  position: relative;
 }
 
 .mood-insights h3 {
@@ -117,20 +126,25 @@
   color: #111827;
 }
 
+/* View History Button */
 .view-history {
-  background: none;
+  background-color: #6366f1;
+  color: white;
+  font-weight: 600;
+  font-size: 0.9rem;
   border: none;
-  color: #6366f1;
-  font-weight: 500;
+  padding: 0.5rem 1.25rem;
+  border-radius: 999px;
   cursor: pointer;
-  font-size: 0.95rem;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: background 0.3s ease;
+  display: inline-block;
+  margin-top: 0.75rem;
+  box-shadow: 0 3px 10px rgba(99, 102, 241, 0.2);
 }
 
 .view-history:hover {
-  text-decoration: underline;
-  color: #4f46e5;
+  background-color: #4f46e5;
 }
 
 /* Insight Cards Container */
@@ -141,15 +155,15 @@
   margin-top: 20px;
 }
 
-/* Individual Insight Card */
+/* Insight Card */
 .insight-card {
-  flex: 1 1 250px;
+  flex: 1 1 260px;
   padding: 20px;
-  border-radius: 12px;
+  border-radius: 1rem;
   font-size: 0.95rem;
   background-color: #f3f4f6;
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   color: #374151;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.05);
   transition: transform 0.2s ease, box-shadow 0.2s ease;
 }
 
@@ -165,7 +179,7 @@
   color: #111827;
 }
 
-/* Card Color Variants */
+/* Color Variants */
 .insight-card.blue {
   background-color: #e0e7ff;
   color: #1e3a8a;
@@ -181,7 +195,7 @@
   color: #92400e;
 }
 
-/* New footer aligned bottom-right inside mood-insights */
+/* Footer Inside Mood Insights */
 .mood-insights-footer {
   position: absolute;
   bottom: 1rem;
@@ -196,4 +210,76 @@
 
 .mood-insights-footer:hover {
   color: #4f46e5;
+}
+
+/* Responsive Design */
+@media (max-width: 1024px) {
+  .mood-grid {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .mood-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .insight-cards {
+    justify-content: center;
+  }
+
+  .view-history {
+    width: 100%;
+    text-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  .mood-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .mood-container {
+    padding: 1.25rem;
+  }
+
+  .insight-card {
+    flex: 1 1 100%;
+  }
+
+  .mood-insights {
+    padding-bottom: 5rem;
+  }
+}
+
+
+.next-button-wrapper {
+  display: flex;
+  justify-content: center;
+  margin-top: 2rem;
+  scroll-margin-top: 6rem;
+}
+
+.next-button {
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.next-button:hover {
+  background-color: #4338ca;
+}
+
+@media (max-width: 480px) {
+  .next-button {
+    width: 90%;
+    font-size: 1.1rem;
+    padding: 1rem;
+  }
 }

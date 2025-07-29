@@ -29,9 +29,10 @@ function App() {
   const showNavbar = isLoggedIn && location.pathname !== '/';
 
   return (
-    <div className="app-container">
-      {showNavbar && <Navbar userEmail={userEmail} setUserEmail={setUserEmail} />}
+  <div className="app-container">
+    {showNavbar && <Navbar userEmail={userEmail} setUserEmail={setUserEmail} />}
 
+    <main>
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route
@@ -60,10 +61,12 @@ function App() {
         />
         <Route path="*" element={<Navigate to="/" />} />
       </Routes>
+    </main>
 
-      <Footer />
-    </div>
-  );
+    <Footer />
+  </div>
+);
+
 }
 
 export default App;

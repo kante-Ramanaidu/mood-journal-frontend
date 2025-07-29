@@ -1,4 +1,4 @@
-import { useState, useEffect } from 'react';
+import { useState, useEffect, useRef } from 'react';
 import { useNavigate } from 'react-router-dom';
 import './MoodSelection.css';
 
@@ -20,6 +20,7 @@ export default function MoodSelection({ userEmail }) {
   const [loading, setLoading] = useState(false);
   const [dominantMood, setDominantMood] = useState(null);
   const [history, setHistory] = useState([]);
+  const buttonRef = useRef(null);
 
   const navigate = useNavigate();
 
@@ -28,7 +29,7 @@ export default function MoodSelection({ userEmail }) {
       if (!userEmail) return;
       try {
         const res = await fetch(
-          `http://localhost:5000/api/mood/history?email=${encodeURIComponent(userEmail)}&days=7`
+          `${process.env.REACT_APP_BACKEND_URL}/api/mood/history?email=${encodeURIComponent(userEmail)}&days=7`
         );
         if (!res.ok) throw new Error('Failed to fetch mood history');
         const data = await res.json();
@@ -66,18 +67,25 @@ export default function MoodSelection({ userEmail }) {
     setMessage('');
 
     try {
-      const res = await fetch('http://localhost:5000/api/mood', {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/mood`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: userEmail, mood }),
       });
       const data = await res.json();
       if (!res.ok) throw new Error(data.message || 'Failed to save mood');
-      setMessage('Mood saved successfully!');
+      setMessage('');
     } catch (err) {
       setError(err.message);
     } finally {
       setLoading(false);
+
+      // Auto scroll to button
+      setTimeout(() => {
+        if (buttonRef.current) {
+          buttonRef.current.scrollIntoView({ behavior: 'smooth', block: 'center' });
+        }
+      }, 200);
     }
   };
 
@@ -123,12 +131,13 @@ export default function MoodSelection({ userEmail }) {
       {error && <p className="feedback error">{error}</p>}
 
       {selectedMood && (
-        <button className="next-button" onClick={handleGoToQuotes}>
-          Go to Quotes & Songs
-        </button>
+        <div className="next-button-wrapper" ref={buttonRef}>
+          <button className="next-button" onClick={handleGoToQuotes}>
+            Go to Quotes & Songs
+          </button>
+        </div>
       )}
 
-      {/* -------------------- Mood Insights Section -------------------- */}
       <div className="mood-insights">
         <div className="insights-header" style={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
           <h3>Your Mood Insights</h3>
@@ -163,7 +172,6 @@ export default function MoodSelection({ userEmail }) {
             <p>Activities to help maintain positive emotions.</p>
           </div>
         </div>
-
       </div>
     </div>
   );

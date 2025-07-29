@@ -1,0 +1,70 @@
+/* GLOBAL CSS for Sticky Footer */
+html, body {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+}
+
+#root, .app {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+/* Footer should stay at the bottom */
+.app-footer {
+  margin-top: auto;
+  padding: 1rem;
+  background-color: #1f2937;
+  color: #fff;
+  text-align: center;
+  position: relative;
+  z-index: 10;
+  box-shadow: 0 -2px 6px rgba(0, 0, 0, 0.2);
+}
+
+/* Top row with year and buttons */
+.footer-top {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  max-width: 900px;
+  margin: 0 auto;
+  padding-bottom: 0.5rem;
+}
+
+/* Footer buttons */
+.footer-links button {
+  background: none;
+  color: #fff;
+  border: none;
+  margin: 0 0.5rem;
+  cursor: pointer;
+  font-size: 0.95rem;
+  transition: color 0.3s;
+}
+
+.footer-links button:hover {
+  color: #a5b4fc;
+}
+
+/* Dropdown section */
+.footer-dropdown {
+  margin-top: 0.75rem;
+  background: rgba(255, 255, 255, 0.05);
+  padding: 0.75rem 1rem;
+  border-radius: 0.5rem;
+  font-size: 0.9rem;
+  color: #e5e7eb;
+  max-width: 800px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeIn 0.3s ease-in-out;
+}
+
+/* Animation */
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: translateY(0); }
+}

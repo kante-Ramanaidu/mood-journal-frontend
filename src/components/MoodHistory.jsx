@@ -39,7 +39,7 @@ export default function MoodHistory({ userEmail }) {
       setLoading(true);
       setError(null);
 
-      let url = `http://localhost:5000/api/mood/history?email=${encodeURIComponent(userEmail)}&days=${days}`;
+      let url = `${process.env.REACT_APP_BACKEND_URL}/api/mood/history?email=${encodeURIComponent(userEmail)}&days=${days}`;
       if (selectedTriggers.length > 0) {
         const triggersParam = encodeURIComponent(selectedTriggers.join(','));
         url += `&triggers=${triggersParam}`;
@@ -136,7 +136,6 @@ export default function MoodHistory({ userEmail }) {
     );
   };
 
-  // Clear filters handler
   const clearFilters = () => {
     setSelectedTriggers([]);
   };

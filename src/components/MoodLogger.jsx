@@ -72,7 +72,7 @@ export default function MoodLogger({ userEmail }) {
     if (!mood) return alert('Select a mood');
 
     try {
-      const res = await fetch('http://localhost:5000/api/mood', {
+      const res = await fetch(`${process.env.REACT_APP_BACKEND_URL}/api/mood`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: userEmail, mood, triggers: selectedTriggers }),
@@ -81,7 +81,6 @@ export default function MoodLogger({ userEmail }) {
       const data = await res.json();
       if (!res.ok) throw new Error(data.message);
 
-      // Show recommendations button and prepare recommendations but keep hidden initially
       const moodLower = mood.toLowerCase();
       const recs = moodRecommendations[moodLower] || ['Keep taking care of yourself!'];
       setRecommendations(recs);

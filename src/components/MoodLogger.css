@@ -1,11 +1,11 @@
 .mood-logger-wrapper {
-  max-width: 600px; /* bigger container */
+  max-width: 600px;
   margin: 40px auto;
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   background: rgba(255, 255, 255, 0.6);
   backdrop-filter: blur(10px);
   -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.3); /* light calm background */
+  border: 1px solid rgba(255, 255, 255, 0.3);
   padding: 30px 40px;
   border-radius: 15px;
   box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
@@ -14,7 +14,7 @@
 .mood-form {
   display: flex;
   flex-direction: column;
-  gap: 24px; /* big gaps between form sections */
+  gap: 24px;
 }
 
 .mood-form h2 {
@@ -27,11 +27,6 @@
   text-align: center;
   margin-bottom: 20px;
 }
-
-
-
-
-
 
 .mood-form label {
   font-size: 18px;
@@ -144,4 +139,55 @@
 
 .recommendations-section li {
   margin-bottom: 10px;
+}
+
+/* ✅ Mobile Responsive Styles */
+@media screen and (max-width: 600px) {
+  .mood-logger-wrapper {
+    margin: 24px 16px;
+    padding: 24px 20px;
+  }
+
+  .mood-form h2 {
+    font-size: 24px;
+    letter-spacing: 0.8px;
+  }
+
+  .mood-form label {
+    font-size: 16px;
+  }
+
+  .mood-form input[type="text"] {
+    padding: 10px 14px;
+    font-size: 15px;
+  }
+
+  .trigger-grid {
+    grid-template-columns: repeat(auto-fit, minmax(120px, 1fr));
+    gap: 12px;
+  }
+
+  .trigger-option {
+    padding: 8px 12px;
+    font-size: 14px;
+  }
+
+  .mood-form button[type="submit"] {
+    font-size: 16px;
+    padding: 12px 20px;
+  }
+
+  .toggle-recommendations-btn {
+    font-size: 15px;
+    padding: 12px 20px;
+  }
+
+  .recommendations-section {
+    font-size: 15px;
+    padding: 16px 18px;
+  }
+
+  .recommendations-section h3 {
+    font-size: 20px;
+  }
 }

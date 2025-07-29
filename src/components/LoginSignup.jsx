@@ -25,7 +25,7 @@ export default function LoginSignup({ onLogin }) {
     }
 
     try {
-      const url = isSignUp ? '/api/auth/signup' : '/api/auth/login';
+      const url = `${process.env.REACT_APP_BACKEND_URL}${isSignUp ? '/api/auth/signup' : '/api/auth/login'}`;
       const res = await fetch(url, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
