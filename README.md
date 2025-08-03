@@ -29,7 +29,7 @@ A modern web app that helps users track their moods, get personalized quotes & s
 –   static file -For quotes
 - [YouTube Data API](https://developers.google.com/youtube/v3) – For mood-based songs
 
-- git rep-https://github.com/kante-Ramanaidu/mood-journal-frontend(frontend)
-- git rep-https://github.com/kante-Ramanaidu/mood-journal-backend(backend)
+- git rep(frontend) -https://github.com/kante-Ramanaidu/mood-journal-frontend
+- git rep(backend)  -https://github.com/kante-Ramanaidu/mood-journal-backend
 
 
